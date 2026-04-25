@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pavon & Co — AI Tools by Gull Pavon</title>
+  <meta name="description" content="Pavon & Co is Gull Pavon's incubation lab for AI-powered tools. A decade of data science, cutting-edge AI research, and hands-on engineering — building tools that think deeper.">
+  <meta name="keywords" content="Gull Pavon, Pavon and Co, AI tools, data science, artificial intelligence, MindM3rge, KinkLink">
+  <meta property="og:title" content="Pavon & Co — AI Tools by Gull Pavon">
+  <meta property="og:description" content="Building AI-powered tools at the intersection of data science, design, and engineering.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pavonco.com">
+  <link rel="canonical" href="https://pavonco.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #000;
+      color: #f5f5f7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ─── Nav ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 18px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(40px) saturate(180%);
+      -webkit-backdrop-filter: blur(40px) saturate(180%);
+      border-bottom: 0.5px solid rgba(255,255,255,0.06);
+    }
+    .nav-logo {
+      font-size: 17px; font-weight: 700; letter-spacing: -0.3px;
+      color: #f5f5f7;
+    }
+    .nav-logo span { color: #86868b; font-weight: 400; }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      font-size: 13px; color: #86868b; text-decoration: none;
+      transition: color 0.2s; font-weight: 500;
+    }
+    .nav-links a:hover { color: #f5f5f7; }
+
+    /* ─── Hero ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -300px; left: 50%; transform: translateX(-50%);
+      width: 1000px; height: 1000px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.02) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-name {
+      font-size: clamp(14px, 2vw, 16px);
+      font-weight: 500;
+      color: #86868b;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: clamp(48px, 7vw, 76px);
+      font-weight: 900;
+      letter-spacing: -3px;
+      line-height: 1.05;
+      margin-bottom: 28px;
+      max-width: 700px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: #86868b;
+    }
+    .hero p {
+      font-size: clamp(16px, 2vw, 19px);
+      color: #86868b;
+      max-width: 520px;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+    .scroll-hint {
+      position: absolute; bottom: 40px;
+      font-size: 11px; color: #3a3a3c;
+      letter-spacing: 2px; text-transform: uppercase;
+      animation: fadeInUp 1s ease 1s both;
+    }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ─── Bio ─── */
+    .bio {
+      padding: 120px 24px;
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .bio-label {
+      font-size: 11px; font-weight: 600; color: #48484a;
+      text-transform: uppercase; letter-spacing: 2px;
+      margin-bottom: 24px;
+    }
+    .bio p {
+      font-size: 18px; line-height: 1.8; color: #a1a1a6;
+      font-weight: 300;
+    }
+    .bio p strong { color: #f5f5f7; font-weight: 500; }
+
+    /* ─── Projects ─── */
+    .projects {
+      padding: 80px 24px 120px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .projects-label {
+      font-size: 11px; font-weight: 600; color: #48484a;
+      text-transform: uppercase; letter-spacing: 2px;
+      text-align: center; margin-bottom: 48px;
+    }
+    .project-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+    }
+    .project {
+      padding: 36px 32px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.02);
+      border: 0.5px solid rgba(255,255,255,0.06);
+      transition: all 0.3s ease;
+      text-decoration: none; color: inherit;
+      display: block;
+      position: relative;
+      overflow: hidden;
+    }
+    .project:hover {
+      border-color: rgba(255,255,255,0.12);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+    }
+    .project .p-icon { font-size: 32px; margin-bottom: 16px; display: block; }
+    .project h3 {
+      font-size: 20px; font-weight: 700; margin-bottom: 6px;
+      letter-spacing: -0.5px;
+    }
+    .project .p-tag {
+      display: inline-block; font-size: 10px; font-weight: 600;
+      color: #48484a; text-transform: uppercase; letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .project p {
+      font-size: 14px; color: #86868b; line-height: 1.6; font-weight: 300;
+    }
+    .project .p-link {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 13px; color: #0a84ff; font-weight: 500;
+      margin-top: 16px;
+    }
+    .project:hover .p-link { text-decoration: underline; }
+
+    .project.featured {
+      grid-column: span 2;
+      background: linear-gradient(135deg, rgba(124,92,252,0.04), rgba(0,212,170,0.02));
+      border-color: rgba(124,92,252,0.12);
+    }
+    .project.coming { opacity: 0.5; pointer-events: none; }
+    .project.coming::after {
+      content: 'COMING SOON';
+      position: absolute; top: 16px; right: 16px;
+      font-size: 9px; font-weight: 700; letter-spacing: 1px;
+      color: #48484a; background: rgba(255,255,255,0.04);
+      padding: 4px 8px; border-radius: 6px;
+    }
+
+    /* ─── Contact ─── */
+    .contact {
+      padding: 80px 24px 120px;
+      text-align: center;
+    }
+    .contact-label {
+      font-size: 11px; font-weight: 600; color: #48484a;
+      text-transform: uppercase; letter-spacing: 2px;
+      margin-bottom: 24px;
+    }
+    .contact p {
+      font-size: 16px; color: #86868b; margin-bottom: 24px;
+      font-weight: 300;
+    }
+    .contact-links { display: flex; gap: 16px; justify-content: center; }
+    .contact-links a {
+      padding: 10px 24px; border-radius: 10px; font-size: 13px; font-weight: 500;
+      border: 0.5px solid rgba(255,255,255,0.1); color: #f5f5f7;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .contact-links a:hover { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.2); }
+
+    /* ─── Footer ─── */
+    footer {
+      padding: 32px 48px;
+      border-top: 0.5px solid rgba(255,255,255,0.04);
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 12px; color: #3a3a3c;
+    }
+
+    /* ─── Separator ─── */
+    .sep {
+      width: 40px; height: 0.5px;
+      background: rgba(255,255,255,0.1);
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .project-grid { grid-template-columns: 1fr; }
+      .project.featured { grid-column: span 1; }
+      nav { padding: 14px 20px; }
+      .nav-links { gap: 20px; }
+      .contact-links { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-logo">Pavon <span>&</span> Co</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ═══ Hero ═══ -->
+  <section class="hero">
+    <div class="hero-name">Pavon & Co</div>
+    <h1>Building tools<br><em>that think.</em></h1>
+    <p>An incubation lab for AI-powered products. A decade of data science meets cutting-edge engineering.</p>
+    <div class="scroll-hint">Scroll</div>
+  </section>
+
+  <!-- ═══ Bio ═══ -->
+  <section class="bio" id="about">
+    <div class="sep" style="margin-bottom: 48px;"></div>
+    <div class="bio-label">About</div>
+    <p><strong>Gull Pavon</strong> is a data scientist with over a decade of experience at the forefront of artificial intelligence. From machine learning research to production-grade AI systems, he combines deep technical expertise with design-driven thinking to build tools that are as intuitive as they are powerful.</p>
+    <br>
+    <p>Pavon & Co is where ideas become products — an incubation lab for AI tools built with the latest technologies, research, and real-world engineering. Every project ships under the Pavon & Co umbrella, each solving a real problem with precision and craft.</p>
+  </section>
+
+  <!-- ═══ Projects ═══ -->
+  <section class="projects" id="projects">
+    <div class="sep" style="margin-bottom: 48px;"></div>
+    <div class="projects-label">Projects</div>
+
+    <div class="project-grid">
+      <!-- MindM3rge — Featured -->
+      <a href="https://mindm3rge.pavonco.com" class="project featured">
+        <span class="p-icon">
+          <svg width="36" height="36" viewBox="0 0 100 100"><defs><linearGradient id="mm" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7c5cfc"/><stop offset="100%" stop-color="#00d4aa"/></linearGradient></defs><circle cx="38" cy="35" r="22" fill="none" stroke="url(#mm)" stroke-width="3"/><circle cx="62" cy="35" r="22" fill="none" stroke="url(#mm)" stroke-width="3"/><circle cx="50" cy="56" r="22" fill="none" stroke="url(#mm)" stroke-width="3"/><circle cx="50" cy="42" r="7" fill="url(#mm)"/></svg>
+        </span>
+        <div class="p-tag">AI Validation</div>
+        <h3>MindM3rge</h3>
+        <p>Multi-model AI validation. Submit one prompt, have Claude, ChatGPT, and Gemini debate, critique, and refine each other's answers through structured discussion.</p>
+        <span class="p-link">mindm3rge.pavonco.com &rarr;</span>
+      </a>
+
+      <!-- KinkLink -->
+      <a href="https://kinklink.pavonco.com" class="project">
+        <span class="p-icon">&#128279;</span>
+        <div class="p-tag">Social Network</div>
+        <h3>KinkLink</h3>
+        <p>Privacy-first social platform with proximity-based discovery, kink matching, and creator monetization.</p>
+        <span class="p-link">kinklink.pavonco.com &rarr;</span>
+      </a>
+
+      <!-- Future project placeholder -->
+      <a href="#" class="project coming">
+        <span class="p-icon">&#128300;</span>
+        <div class="p-tag">Research</div>
+        <h3>Next Project</h3>
+        <p>Something new is in the works. Stay tuned.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══ Contact ═══ -->
+  <section class="contact" id="contact">
+    <div class="sep" style="margin-bottom: 48px;"></div>
+    <div class="contact-label">Get in Touch</div>
+    <p>Interested in collaborating, investing, or just want to say hi?</p>
+    <div class="contact-links">
+      <a href="mailto:gull@pavonco.com">Email</a>
+      <a href="https://github.com/gullcpuai-lab" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/gullpavon" target="_blank">LinkedIn</a>
+    </div>
+  </section>
+
+  <footer>
+    <span>&copy; 2026 Pavon & Co</span>
+    <span>Built with AI</span>
+  </footer>
+</body>
+</html>
